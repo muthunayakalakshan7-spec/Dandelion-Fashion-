@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dandelion Fashion Store - elegant frocks and dresses in Sri Lanka.">
+  <title>Dandelion Fashion Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero-bg{background-image:url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1800&q=85');}
+    .offer-banner-bg{background-image:url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85');}
+    .collection-card img,.product-image-wrap img,.instagram-item img{object-fit:cover;}
+    .hero .container{width:100%;}
+    .collection-card img{height:100%;}
+    .shop-link{margin-top:.75rem;display:inline-block;color:inherit;font-weight:600;}
+    .cart-drawer{position:fixed;right:-420px;top:0;width:min(420px,92vw);height:100vh;background:#fff;z-index:2500;padding:2rem;box-shadow:-10px 0 40px rgba(0,0,0,.15);transition:.35s;overflow:auto}
+    .cart-drawer.active{right:0}.cart-drawer h3{font-family:var(--font-heading);font-size:1.6rem;margin-bottom:1rem}
+    .cart-close{position:absolute;right:1rem;top:1rem;font-size:1.4rem}.cart-row{display:grid;grid-template-columns:70px 1fr auto;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--gray-light);align-items:center}
+    .cart-row img{width:70px;height:90px;object-fit:cover;border-radius:8px}.cart-total{display:flex;justify-content:space-between;font-weight:700;font-size:1.15rem;margin:1.5rem 0}
+    .empty-note{text-align:center;color:var(--gray);padding:2rem 0}
+    @media(max-width:768px){.hero{min-height:650px}.hero-overlay{background:linear-gradient(to right,rgba(250,247,242,.92),rgba(250,247,242,.55))}.header-actions{gap:.3rem}.logo{font-size:1.25rem}}
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="#home"><span class="logo-icon">🌼</span>Dandelion Fashion Store</a>
+    <nav class="nav-menu">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#shop">Shop</a>
+      <a class="nav-link" href="#collections">Collections</a>
+      <a class="nav-link" href="#new">New Arrivals</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="header-icon" id="searchBtn" aria-label="Search">⌕</button>
+      <button class="header-icon" id="wishlistBtn" aria-label="Wishlist">♡<span class="count" id="wishCount">0</span></button>
+      <button class="header-icon" id="cartBtn" aria-label="Shopping cart">🛍<span class="count" id="cartCount">0</span></button>
+      <button class="mobile-menu-btn" id="mobileBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">×</button>
+  <div class="mobile-menu-links">
+    <a href="#home">Home</a><a href="#shop">Shop</a><a href="#collections">Collections</a>
+    <a href="#new">New Arrivals</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-overlay"></div>
+  <div class="container"><div class="hero-content">
+    <span class="hero-label">Dandelion Fashion Store</span>
+    <h1 class="hero-title">Elegance in Every Dress</h1>
+    <p class="hero-text">Discover beautiful frocks designed to make every moment special. Stylish, feminine and made to help your confidence bloom.</p>
+    <div class="hero-buttons"><a class="btn btn-primary" href="#shop">Shop Dresses</a><a class="btn btn-outline" href="#collections">Explore Collection</a></div>
+  </div></div>
+</section>
+
+<section class="section" id="collections">
+<div class="container"><div class="section-header"><h2 class="section-title">Shop by Collection</h2><p class="section-subtitle">Find a style for every occasion.</p></div>
+<div class="collections-grid">
+  <a class="collection-card" href="#shop"><img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=80" alt="Casual frock"><div class="collection-overlay"><h3 class="collection-title">Everyday Frocks</h3><p class="collection-desc">Comfortable styles for every day.</p><span class="btn btn-small btn-blush">Shop Collection</span></div></a>
+  <a class="collection-card" href="#shop"><img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=80" alt="Party dress"><div class="collection-overlay"><h3 class="collection-title">Party Frocks</h3><p class="collection-desc">Elegant looks for special moments.</p><span class="btn btn-small btn-gold">Shop Collection</span></div></a>
+  <a class="collection-card" href="#shop"><img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=900&q=80" alt="Evening dress"><div class="collection-overlay"><h3 class="collection-title">Evening Dresses</h3><p class="collection-desc">Sophisticated styles that stand out.</p><span class="btn btn-small btn-outline">Shop Collection</span></div></a>
+</div></div>
+</section>
+
+<section class="section" id="shop">
+<div class="container"><div class="section-header"><h2 class="section-title">Featured Frocks</h2><p class="section-subtitle">Beautiful designs selected for you.</p></div>
+<div class="products-grid" id="productGrid"></div>
+</div></section>
+
+<section class="section" id="new">
+<div class="container"><div class="section-header"><h2 class="section-title">New Arrivals</h2><p class="section-subtitle">Fresh styles have arrived.</p></div>
+<div class="horizontal-scroll" id="newGrid"></div></div></section>
+
+<section class="section">
+<div class="container"><div class="offer-banner"><div class="offer-banner-bg"></div><div class="offer-banner-overlay"></div>
+<div class="offer-banner-content"><h2 class="offer-banner-title">Find Your Perfect Dress</h2><p class="offer-banner-text">Discover selected frocks and enjoy up to 20% off selected styles.</p><a href="#shop" class="btn btn-gold">Shop Sale</a></div></div></div>
+</section>
+
+<section class="section" id="about">
+<div class="container"><div class="about-content">
+<div class="about-image"><img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=85" alt="Dandelion fashion"></div>
+<div class="about-text"><h2>Where Every Dress Tells a Story</h2>
+<p>At Dandelion Fashion Store, we believe the right dress can bring confidence, elegance and joy.</p>
+<p>We carefully select beautiful frocks that combine modern fashion, comfort and timeless style for women in Sri Lanka.</p>
+<a class="btn btn-primary" href="#contact">Contact Us</a></div></div></div>
+</section>
+
+<section class="section">
+<div class="container"><div class="section-header"><h2 class="section-title">Loved by Her</h2><p class="section-subtitle">What our customers say.</p></div>
+<div class="testimonials-grid">
+<div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">“Absolutely loved my dress. The design and quality were beautiful!”</p><div class="testimonial-author">Happy Customer</div></div>
+<div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">“The frock looked even better in person. Very elegant and comfortable.”</p><div class="testimonial-author">Happy Customer</div></div>
+<div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">“Beautiful collection and lovely service. I will definitely order again.”</p><div class="testimonial-author">Happy Customer</div></div>
+</div></div>
+</section>
+
+<section class="section" id="contact">
+<div class="container"><div class="section-header"><h2 class="section-title">Stay Connected</h2><p class="section-subtitle">Be the first to discover new dresses.</p></div>
+<div class="newsletter-section"><form class="newsletter-form" id="newsletter"><input class="newsletter-input" type="email" placeholder="Enter your email" required><button class="btn btn-primary" type="submit">Subscribe</button></form></div></div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container footer-grid">
+<div class="footer-brand"><a class="logo" href="#home"><span class="logo-icon">🌼</span>Dandelion Fashion Store</a><p>Where elegance blooms in every dress.</p></div>
+<div><h3 class="footer-title">Quick Links</h3><div class="footer-links"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#new">New Arrivals</a><a href="#about">About</a></div></div>
+<div><h3 class="footer-title">Customer Care</h3><div class="footer-links"><a href="#">Size Guide</a><a href="#">Delivery Information</a><a href="#">Returns</a><a href="#">FAQs</a></div></div>
+<div class="footer-contact"><h3 class="footer-title">Contact</h3><p>📍 Sri Lanka</p><p>📞 +94 7X XXX XXXX</p><p>✉️ hello@dandelionfashion.lk</p><div class="footer-social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="TikTok">♪</a></div></div>
+</div>
+<div class="container footer-bottom">© 2026 Dandelion Fashion Store. All Rights Reserved.</div>
+</footer>
+
+<div class="cart-drawer" id="cartDrawer">
+<button class="cart-close" id="cartClose">×</button><h3>Your Cart</h3><div id="cartItems"></div>
+<div class="cart-total"><span>Total</span><span id="cartTotal">Rs. 0</span></div>
+<a class="btn btn-primary" style="width:100%" href="#shop" id="continueShopping">Continue Shopping</a>
+</div>
+
+<div class="search-overlay" id="searchOverlay"><button class="search-close" id="searchClose">×</button>
+<div class="search-input-wrap"><input id="searchInput" type="search" placeholder="Search dresses, frocks..."></div><div class="search-results" id="searchResults"></div></div>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/script.js"></script>
+</body>
+</html>
